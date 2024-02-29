@@ -1,16 +1,22 @@
 
-function Livro({titulo, autor, imagem, descricao}){
+function Livro({dadosJSON}){
     return(
-        <div className='cardBook'>
-            <h3>{titulo}</h3>
+        <>
+            {
+                dadosJSON.map((livro)=>(
+                    <div className='cardBook'>
+                        <h3>{livro.titulo}</h3>
 
-            <p>{autor}</p>
+                        <p>{livro.autor}</p>
 
-            <img src={imagem} width={150} alt='Capa do livro as cavernas de aço Isaac Asimov'/>
+                        <img src={livro.imagem} width={150} alt='Capa do livro as cavernas de aço Isaac Asimov'/>
 
-            <p>{descricao}</p>
+                        <p>{livro.descricao}</p>
 
-         </div>
+                    </div>
+            ))
+            }
+        </>
     );
 }
 
