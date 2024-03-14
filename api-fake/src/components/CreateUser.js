@@ -5,26 +5,28 @@ function CreateUser(){
     const [name, setName] = useState("");
     const [job, setJob] = useState("");
 
-    function CreateUser(){
+    function createuser(event){
 
-        let user = JSON.stringify({name:'', job:''});
-        alert(user);
+        event.preventDefault();
 
-        //axios aqui;
+        let user = JSON.stringify({name:name, job:job});
+        console.log(user);
+
+        // axios aqui
         axios.post('https://reqres.in/api/users', user)
-        .then((response)=>{
-            console.log(response);
-            alert(response);
-        })
-        .catch((error)=>{
-            console.log(error);
-            alert(error);
-        })
+            .then((response)=>{
+                // alert(response);
+                console.log(response);
+            })
+            .catch((error)=>{
+                // alert(error);
+                console.log(error);
+            })
     }
 
     return(
 
-        <form onSubmit={CreateUser} className="form">
+        <form onSubmit={createuser} className="form">
                 <h1> FORMULÁRIO DE CADASTRO</h1>
                 <input
                 type="Text" 
